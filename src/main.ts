@@ -34,11 +34,54 @@ const availableHires: Hires[] = [
     description: "A novice archer to help you hit more targets.",
     buttonElement: document.createElement("button"),
   },
+  {
+    name: "Intermediate Crossbowman",
+    baseCost: 50,
+    rate: 2,
+    time: 4000,
+    quantity: 0,
+    cost: 30,
+    description:
+      "A Intermediate Crossbowman ready to nail some targets for you.",
+    buttonElement: document.createElement("button"),
+  },
+  {
+    name: "Advanced Medival Weaponry",
+    baseCost: 500,
+    rate: 10,
+    time: 8000,
+    quantity: 0,
+    cost: 200,
+    description: "A Balista about to decimate the targets for you.",
+    buttonElement: document.createElement("button"),
+  },
+  {
+    name: "Trickshot Tristian",
+    baseCost: 10000,
+    rate: 100,
+    time: 1000,
+    quantity: 0,
+    cost: 1000,
+    description:
+      "I don't know who this is we found him on the street, but he seems realy pumped about shooting some targets",
+    buttonElement: document.createElement("button"),
+  },
+  {
+    name: "Gun",
+    baseCost: 1000000,
+    rate: 1,
+    time: 10,
+    quantity: 0,
+    cost: 1000000,
+    description: "It's a gun",
+    buttonElement: document.createElement("button"),
+  },
 ];
 
 // Main game class handling the clicker logic and DOM interactions
 class ArcheryClicker {
   private score: number;
+  private arrowSound!: HTMLAudioElement;
   private scoreDisplay: HTMLParagraphElement;
   private targetButtonElement!: HTMLButtonElement;
 
@@ -50,8 +93,11 @@ class ArcheryClicker {
     document.body.style.flexDirection = "column";
     document.body.style.justifyContent = "center";
     document.body.style.alignItems = "center";
-    document.body.style.backgroundColor = "rgb(135, 224, 249)";
+    document.body.style.background =
+      "linear-gradient(to bottom, rgb(135,224,249) 0 50%, #4b8b32 50% 100%)";
     document.body.style.fontFamily = "Arial, sans-serif";
+
+    this.arrowSound = new Audio("/src/assets/arrow.mp3");
 
     const buttonRow = document.createElement("div");
     buttonRow.style.display = "flex";
@@ -65,7 +111,6 @@ class ArcheryClicker {
     this.targetButtonElement.style.width = "200px";
     this.targetButtonElement.style.height = "200px";
     this.targetButtonElement.style.borderRadius = "50%";
-    // this.targetButtonElement.style.background = "red";
     this.targetButtonElement.style.color = "white";
     this.targetButtonElement.style.fontSize = "24px";
     this.targetButtonElement.style.border = "none";
@@ -117,6 +162,9 @@ class ArcheryClicker {
     this.targetButtonElement.addEventListener("click", () => {
       this.score++;
       this.updateScoreDisplay();
+
+      this.arrowSound.currentTime = 0;
+      this.arrowSound.play();
     });
 
     availableHires.forEach((hires) => {
