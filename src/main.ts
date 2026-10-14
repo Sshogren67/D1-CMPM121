@@ -2,7 +2,7 @@
 // even this tiny example demonstrates a separately deployed asset.
 // @deno-types="./asset-url.d.ts"
 import "./style.css";
-import "./assets/arrow.mp3";
+import arrowSound from "./assets/arrow.mp3";
 
 const _app = document.querySelector<HTMLElement>("#app")!;
 
@@ -98,7 +98,7 @@ class ArcheryClicker {
       "linear-gradient(to bottom, rgb(135,224,249) 0 50%, #4b8b32 50% 100%)";
     document.body.style.fontFamily = "Arial, sans-serif";
 
-    this.arrowSound = new Audio("/src/assets/arrow.mp3");
+    this.arrowSound = new Audio(arrowSound);
 
     const buttonRow = document.createElement("div");
     buttonRow.style.display = "flex";
