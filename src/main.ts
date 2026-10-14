@@ -15,6 +15,7 @@ interface Hires {
   name: string;
   baseCost: number;
   rate: number;
+  time: number;
   quantity: number;
   cost: number;
   description?: string;
@@ -27,9 +28,10 @@ const availableHires: Hires[] = [
     name: "Novice Archer",
     baseCost: 10,
     rate: 1,
+    time: 3000,
     quantity: 0,
     cost: 10,
-    description: "A skilled archer to help you hit more targets.",
+    description: "A novice archer to help you hit more targets.",
     buttonElement: document.createElement("button"),
   },
 ];
@@ -101,12 +103,13 @@ class ArcheryClicker {
     this.attachEventListeners();
     this.updateScoreDisplay();
 
-    setInterval(() => {
-      availableHires.forEach((hire) => {
+    availableHires.forEach((hire) => {
+      setInterval(() => {
         this.score += hire.quantity * hire.rate;
-      });
+        this.updateScoreDisplay();
+      }, hire.time);
       this.updateScoreDisplay();
-    }, 1000);
+    });
   }
 
   // Attaches event listeners to the target button and hire buttons for user interactions
