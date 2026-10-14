@@ -1,8 +1,10 @@
 #target-button {
   font-size: 16px;
-  padding: 10px 20px;
   margin-top: 20px;
   cursor: pointer;
+
+  background: radial-gradient(closest-side,red 20%, white 20% 40%, red 40% 60%,
+    white 60% 80%, red 80%);
 }
 
 .icon {

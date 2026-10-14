@@ -65,7 +65,7 @@ class ArcheryClicker {
     this.targetButtonElement.style.width = "200px";
     this.targetButtonElement.style.height = "200px";
     this.targetButtonElement.style.borderRadius = "50%";
-    this.targetButtonElement.style.backgroundColor = "red";
+    // this.targetButtonElement.style.background = "red";
     this.targetButtonElement.style.color = "white";
     this.targetButtonElement.style.fontSize = "24px";
     this.targetButtonElement.style.border = "none";
