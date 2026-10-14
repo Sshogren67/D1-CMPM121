@@ -2,6 +2,7 @@
 // even this tiny example demonstrates a separately deployed asset.
 // @deno-types="./asset-url.d.ts"
 import "./style.css";
+import "./assets/arrow.mp3";
 
 const _app = document.querySelector<HTMLElement>("#app")!;
 
@@ -37,7 +38,7 @@ const availableHires: Hires[] = [
   {
     name: "Intermediate Crossbowman",
     baseCost: 50,
-    rate: 2,
+    rate: 10,
     time: 4000,
     quantity: 0,
     cost: 30,
@@ -48,7 +49,7 @@ const availableHires: Hires[] = [
   {
     name: "Advanced Medival Weaponry",
     baseCost: 500,
-    rate: 10,
+    rate: 40,
     time: 8000,
     quantity: 0,
     cost: 200,
