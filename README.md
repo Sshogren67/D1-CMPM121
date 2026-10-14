@@ -1,6 +1,14 @@
 # D1 starter
 
-A minimal TypeScript/Vite browser project with Deno checks and GitHub Pages deployment.
+Incremental clicking game about shooting targets. Shoot the targets and buy archers to help you shoot all the targets.
+
+Link: (add later)
+
+Upgrades are made from the "hires" item list and deployed automatically. Add a new object in "availableHires" to get a new upgrade.
+
+Large implmentation of the upgrade system: https://github.com/Sshogren67/D1-CMPM121/commit/f98f48c3ee1ff7cc984ea33d35878722a7fc2196
+
+Updated target: http://github.com/Sshogren67/D1-CMPM121/commit/83dbacd7e94614b26f35bd6014a03cd4ac236977
 
 ## Credits
 
