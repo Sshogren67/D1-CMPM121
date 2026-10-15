@@ -138,7 +138,21 @@ class ArcheryClicker {
     availableHires.forEach((hire) => {
       hire.buttonElement.textContent =
         `${hire.name} (${hire.cost})\nOwned: ${hire.quantity}`;
-      hire.buttonElement.disabled = this.score < hire.cost;
+
+        const canAfford = this.score >= hire.cost;
+
+        hire.buttonElement.disabled = !canAfford;
+
+        if(canAfford){
+          hire.buttonElement.style.backgroundColor = "#28a745"; // green = affordable
+          hire.buttonElement.style.boxShadow = "0 0 12px rgba(40, 167, 69, 0.7)";
+        }
+        else{
+          hire.buttonElement.style.backgroundColor = "#333"; // grey = unaffordable
+          hire.buttonElement.style.boxShadow = "none"; 
+        }
+
+        //hire.buttonElement.disabled = this.score < hire.cost;
     });
   }
 }
